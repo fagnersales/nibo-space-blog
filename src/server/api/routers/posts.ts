@@ -12,7 +12,7 @@ import {
 
 const rateLimiter = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(10, "10 s"),
+  limiter: Ratelimit.slidingWindow(3, "1 m"),
   analytics: true,
 });
 
