@@ -13,6 +13,14 @@ const config = {
         project: path.join(__dirname, "tsconfig.json"),
       },
     },
+    {
+      extends: "next",
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "react/no-unescaped-entities": "off",
+        "@next/next/no-page-custom-font": "off",
+      }
+    }
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
