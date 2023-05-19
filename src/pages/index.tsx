@@ -1,4 +1,4 @@
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { SignInButton, useClerk, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -15,6 +15,7 @@ dayjs.extend(relativeTime);
 
 const CreatePostWizard = () => {
   const { user, isSignedIn } = useUser();
+  const { signOut } = useClerk();
 
   const [input, setInput] = useState<string>("");
 
@@ -42,6 +43,7 @@ const CreatePostWizard = () => {
         className="h-12 w-12 rounded-full"
         width={56}
         height={56}
+        onClick={() => signOut()}
       />
       <input
         placeholder="Type some emojis!"
